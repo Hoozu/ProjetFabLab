@@ -1,3 +1,8 @@
-controllers:
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+
+\controllers:
     resource: ../src/Controller/
     type: attribute
