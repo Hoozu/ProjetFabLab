@@ -22,6 +22,9 @@ class Devices
     #[ORM\OneToMany(mappedBy: 'Device', targetEntity: Value::class)]
     private Collection $ValueDevice;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $NbClients = null;
+
     public function __construct()
     {
         $this->ValueDevice = new ArrayCollection();
@@ -70,6 +73,18 @@ class Devices
                 $valueDevice->setDevice(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNbClients(): ?int
+    {
+        return $this->NbClients;
+    }
+
+    public function setNbClients(?int $NbClients): self
+    {
+        $this->NbClients = $NbClients;
 
         return $this;
     }

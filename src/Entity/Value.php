@@ -14,13 +14,14 @@ class Value
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'ValueDevice')]
+    
     private ?Devices $Device = null;
 
     #[ORM\Column]
     private ?int $Count = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $Date = null;
+    private ?string $Date = null;
 
     public function getId(): ?int
     {
@@ -51,12 +52,12 @@ class Value
         return $this;
     }
 
-    public function getDate(): ?\DateTimeImmutable
+    public function getDate(): ?string
     {
         return $this->Date;
     }
 
-    public function setDate(\DateTimeImmutable $Date): self
+    public function setDate(string $Date): self
     {
         $this->Date = $Date;
 
